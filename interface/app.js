@@ -121,6 +121,7 @@ const lounges = [
       { title: "Chef's Assistant", persona: "Cheerful chef", tool: "random_ingredient()", resource: "recipes.txt" },
       { title: "Story Generator", persona: "Storyteller who speaks in riddles", tool: "pick_word(category)", resource: "story_starts.txt" },
       { title: "Daily Planner", persona: "Hyper-organised assistant", tool: "flip_coin()", resource: "tasks.txt" },
+      { title: "Trivia Machine", persona: "Know-it-all robot who admits when it guesses", tool: "roll_dice(sides)", resource: "trivia.txt" },
       { title: "Fortune Teller", persona: "Mysterious oracle", tool: "random_number(max)", resource: "fortunes.txt" },
     ],
     path: "../lounge-09-capstone-showcase/README.md",
