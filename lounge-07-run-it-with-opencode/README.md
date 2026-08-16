@@ -31,11 +31,15 @@ Hand a real coding task to opencode and supervise it end to end.
       do better?
 
 ## Try it
+Finish filling in `template/AGENTS.md` and `template/mission.md` first,
+then run opencode inside the template folder:
+
 ```bash
 cd lounge-07-run-it-with-opencode/template
 opencode
 ```
-Then tell opencode to read `mission.md` and build what it describes.
+Tell opencode to read `mission.md` and build what it describes.
+If you want to see a working reference run first, use the `working/` folder instead.
 
 ## Check your work
 ```bash

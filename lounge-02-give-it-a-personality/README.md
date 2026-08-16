@@ -53,7 +53,7 @@ Fix them one at a time. Run the file after each fix to confirm you
 haven't introduced a new problem.
 
 ## Go deeper
-Once all 5 checklist items are green, try these stretch challenges:
+Once all checklist items are green, try these stretch challenges:
 
 - **Mood dial:** Add an optional `mood` parameter to `ask_persona` so
   you can call `ask_persona("Hello", mood="grumpy")` and the system
