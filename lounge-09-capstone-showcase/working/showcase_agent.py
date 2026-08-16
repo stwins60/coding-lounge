@@ -1,0 +1,88 @@
+"""
+Lounge 9 — Capstone Showcase
+One agent that has a persona, a tool, and reads a note through
+mini-MCP — everything from Lounges 1-8 in one file.
+"""
+
+import json
+import random
+
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+client = OpenAI()
+
+SYSTEM_PROMPT = (
+    "You are Lounge Bot, the Coding Lounge's helper. Be encouraging and "
+    "brief. You can roll dice and you know today's Coding Lounge note."
+)
+
+NOTES = {"today.txt": "Welcome to the Coding Lounge capstone. Good luck!"}
+
+
+def roll_dice(sides: int = 6) -> int:
+    return random.randint(1, sides)
+
+
+def read_note(name: str) -> str:
+    """Mini-MCP style resource read, straight from Lounge 6."""
+    return NOTES[name]
+
+
+TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "roll_dice",
+            "description": "Roll a dice with the given number of sides.",
+            "parameters": {
+                "type": "object",
+                "properties": {"sides": {"type": "integer"}},
+                "required": ["sides"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_note",
+            "description": "Read today's Coding Lounge note.",
+            "parameters": {
+                "type": "object",
+                "properties": {"name": {"type": "string"}},
+                "required": ["name"],
+            },
+        },
+    },
+]
+
+AVAILABLE_FUNCTIONS = {"roll_dice": roll_dice, "read_note": read_note}
+
+
+def run_showcase(question: str) -> str:
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": question},
+    ]
+    first = client.chat.completions.create(model="gpt-4o-mini", messages=messages, tools=TOOLS)
+    reply = first.choices[0].message
+
+    if not reply.tool_calls:
+        return reply.content
+
+    messages.append(reply)
+    for call in reply.tool_calls:
+        function = AVAILABLE_FUNCTIONS[call.function.name]
+        args = json.loads(call.function.arguments)
+        result = function(**args)
+        messages.append({"role": "tool", "tool_call_id": call.id, "content": str(result)})
+
+    second = client.chat.completions.create(model="gpt-4o-mini", messages=messages)
+    return second.choices[0].message.content
+
+
+if __name__ == "__main__":
+    print(run_showcase("Roll a dice for me."))
+    print(run_showcase("What's today's note say?"))
+    print(run_showcase("What's the capital of Japan?"))
