@@ -227,6 +227,19 @@ h2 { margin: 0; font-size: clamp(32px, 4vw, 52px); line-height: 1; letter-spacin
 .dialog-meta strong { font-size: 15px; }
 .dialog-link { min-height: 45px; padding: 0 16px; display: inline-flex; align-items: center; gap: 10px; background: var(--yellow); border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); font-weight: 900; }
 
+.dialog-section-label { margin: 0 0 10px; font: 700 10px var(--mono); text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.dialog-assignment { margin: 22px 0; padding: 16px; background: #f4f1e8; border: 1px solid var(--line); }
+.dialog-assignment .dialog-section-label { margin-bottom: 6px; }
+.assignment-text { margin: 0; font-size: 14px; line-height: 1.6; }
+.dialog-capstone { margin: 22px 0; }
+.capstone-list { margin: 0 0 24px; padding: 0; list-style: none; display: grid; gap: 8px; }
+.capstone-item { padding: 12px 14px; border: 1px solid var(--line); background: var(--white); }
+.capstone-item strong { display: block; margin-bottom: 7px; font-size: 14px; }
+.capstone-details { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.capstone-details span { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
+.capstone-details svg { width: 13px; flex-shrink: 0; }
+.capstone-details code { font: 500 11px var(--mono); color: var(--ink); }
+
 footer { min-height: 90px; padding: 0 clamp(20px, 6vw, 88px); display: flex; align-items: center; justify-content: space-between; background: var(--white); font-weight: 900; }
 footer p { color: var(--muted); font-weight: 600; }
 

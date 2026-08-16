@@ -9,6 +9,7 @@ const lounges = [
     accent: "#ffd43b",
     time: "20 min",
     outcome: "A working model conversation",
+    assignment: "A Python script that sends one message to the API and prints the reply.",
     path: "../lounge-01-first-contact/README.md",
   },
   {
@@ -19,8 +20,9 @@ const lounges = [
     tags: ["Prompts", "OpenAI API"],
     icon: "message-circle-heart",
     accent: "#ef654f",
-    time: "25 min",
+    time: "1 hour",
     outcome: "An agent with a clear voice",
+    assignment: "A script where a named persona answers 5 questions consistently, plus a persona-notes.md.",
     path: "../lounge-02-give-it-a-personality/README.md",
   },
   {
@@ -31,8 +33,9 @@ const lounges = [
     tags: ["AGENTS.md", "Rules"],
     icon: "book-open-check",
     accent: "#2ba7b8",
-    time: "30 min",
+    time: "1 hour",
     outcome: "A dependable agent rulebook",
+    assignment: "An AGENTS.md with 4 abilities, 4 restrictions, and 3 example conversations that survive a rule-break test.",
     path: "../lounge-03-write-the-rulebook/README.md",
   },
   {
@@ -43,8 +46,9 @@ const lounges = [
     tags: ["SKILL.md", "Workflows"],
     icon: "wand-sparkles",
     accent: "#6e91d8",
-    time: "30 min",
+    time: "1 hour",
     outcome: "A reusable agent skill",
+    assignment: "A SKILL.md with a name, description, and 4+ ordered steps that your agent follows correctly by name.",
     path: "../lounge-04-teach-it-a-trick/README.md",
   },
   {
@@ -55,8 +59,9 @@ const lounges = [
     tags: ["Tools", "Agents"],
     icon: "wrench",
     accent: "#f09a45",
-    time: "40 min",
+    time: "1 hour",
     outcome: "An agent that calls a tool",
+    assignment: "A script with two registered tools (roll_dice + flip_coin) where the agent picks the right tool for each question.",
     path: "../lounge-05-give-it-hands/README.md",
   },
   {
@@ -67,8 +72,9 @@ const lounges = [
     tags: ["MCP", "Resources"],
     icon: "plug-zap",
     accent: "#52a678",
-    time: "45 min",
+    time: "1 hour",
     outcome: "A connected MCP resource",
+    assignment: "A mini MCP server with list, read, write, and delete — all tested with real data in __main__.",
     path: "../lounge-06-plug-into-mcp/README.md",
   },
   {
@@ -79,8 +85,9 @@ const lounges = [
     tags: ["OpenCode", "Missions"],
     icon: "terminal-square",
     accent: "#e7c936",
-    time: "45 min",
+    time: "1 hour",
     outcome: "A completed supervised mission",
+    assignment: "An AGENTS.md, a mission.md, an output file built by opencode, and a review.md with what worked and what you'd change.",
     path: "../lounge-07-run-it-with-opencode/README.md",
   },
   {
@@ -91,8 +98,9 @@ const lounges = [
     tags: ["Multi-agent", "Memory"],
     icon: "messages-square",
     accent: "#c77ab5",
-    time: "45 min",
+    time: "1 hour",
     outcome: "A two-agent conversation",
+    assignment: "A script where two agents exchange 5 rounds, plus duo-notes.md naming one misunderstanding and your fix.",
     path: "../lounge-08-two-robots-talk/README.md",
   },
   {
@@ -103,8 +111,18 @@ const lounges = [
     tags: ["All skills", "Showcase"],
     icon: "presentation",
     accent: "#ef654f",
-    time: "60 min",
+    time: "1 hour",
     outcome: "Your own complete agent",
+    assignment: "A working agent with a custom persona, 3 tools (including one you invented), an AGENTS.md, and a live demo to the lounge.",
+    capstoneSuggestions: [
+      { title: "Weather Wizard", persona: "Dramatic meteorologist", tool: "get_weather(city)", resource: "locations.txt" },
+      { title: "Quiz Champion", persona: "Enthusiastic game show host", tool: "roll_dice(sides)", resource: "questions.txt" },
+      { title: "Space Explorer", persona: "Calm, curious astronaut", tool: "flip_coin()", resource: "mission_log.txt" },
+      { title: "Chef's Assistant", persona: "Cheerful chef", tool: "random_ingredient()", resource: "recipes.txt" },
+      { title: "Story Generator", persona: "Storyteller who speaks in riddles", tool: "pick_word(category)", resource: "story_starts.txt" },
+      { title: "Daily Planner", persona: "Hyper-organised assistant", tool: "flip_coin()", resource: "tasks.txt" },
+      { title: "Fortune Teller", persona: "Mysterious oracle", tool: "random_number(max)", resource: "fortunes.txt" },
+    ],
     path: "../lounge-09-capstone-showcase/README.md",
   },
 ];
@@ -204,6 +222,23 @@ function updateProgress() {
 }
 
 function openDetails(lounge) {
+  const capstoneSuggestionsHtml = lounge.capstoneSuggestions
+    ? `<div class="dialog-capstone">
+        <p class="dialog-section-label">Project ideas — pick one, or invent your own</p>
+        <ul class="capstone-list">
+          ${lounge.capstoneSuggestions.map((s) => `
+          <li class="capstone-item">
+            <strong>${s.title}</strong>
+            <span class="capstone-details">
+              <span><i data-lucide="user-round"></i>${s.persona}</span>
+              <span><i data-lucide="wrench"></i><code>${s.tool}</code></span>
+              <span><i data-lucide="file-text"></i><code>${s.resource}</code></span>
+            </span>
+          </li>`).join("")}
+        </ul>
+      </div>`
+    : "";
+
   dialogContent.innerHTML = `
     <div class="dialog-body">
       <span class="dialog-kicker">Lounge ${String(lounge.number).padStart(2, "0")} · ${lounge.tier}</span>
@@ -213,6 +248,11 @@ function openDetails(lounge) {
         <div><span>Build time</span><strong>${lounge.time}</strong></div>
         <div><span>You will make</span><strong>${lounge.outcome}</strong></div>
       </div>
+      <div class="dialog-assignment">
+        <p class="dialog-section-label">Assignment</p>
+        <p class="assignment-text">${lounge.assignment}</p>
+      </div>
+      ${capstoneSuggestionsHtml}
       <a class="dialog-link" href="${lounge.path}">Open the guide <i data-lucide="arrow-right"></i></a>
     </div>`;
   dialog.showModal();

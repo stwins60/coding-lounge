@@ -4,6 +4,23 @@
 
 One agent, everything you've learned, presented live to the lounge.
 
+## Capstone project ideas
+
+Pick one (or invent your own — these are just starting points):
+
+| # | Project | Persona | Tool | MCP resource |
+|---|---|---|---|---|
+| 1 | **Weather Wizard** | A dramatic meteorologist who speaks in prophecy | `get_weather(city)` returning a fake forecast | `locations.txt` listing cities the wizard knows |
+| 2 | **Quiz Champion** | An enthusiastic game show host | `roll_dice(sides)` for score bonuses | `questions.txt` with trivia questions to read |
+| 3 | **Space Explorer** | A calm, curious astronaut on a long mission | `flip_coin()` to decide which planet to visit | `mission_log.txt` to read and update |
+| 4 | **Chef's Assistant** | A cheerful chef who never gives up on bad recipes | `random_ingredient()` returning a surprise item | `recipes.txt` listing dishes to look up |
+| 5 | **Story Generator** | A storyteller who speaks in riddles | `pick_word(category)` returning a random noun/verb | `story_starts.txt` with opening lines to read |
+| 6 | **Daily Planner** | A hyper-organised assistant who loves bullet points | `flip_coin()` to randomly prioritise tasks | `tasks.txt` to read today's task list from |
+| 7 | **Trivia Machine** | A know-it-all robot who admits when it guesses | `roll_dice(sides)` to pick a random question number | `trivia.txt` with questions and answers |
+| 8 | **Fortune Teller** | A mysterious oracle who speaks in riddles | `random_number(max)` for fortune numbers | `fortunes.txt` to read prophecies from |
+
+**Not sure which to pick?** Choose the one whose *persona* sounds most fun to you — the tools and MCP part are almost the same for all of them.
+
 ## Checklist
 - [ ] Read `working/showcase_agent.py` carefully — it is your map.
       Identify which lines come from Lounge 2 (persona), which from
