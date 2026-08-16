@@ -16,10 +16,10 @@ def ask_the_model(question: str) -> str:
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "user", "text": question},   # bug: wrong dictionary key
+            {"role": "user", "text": question},
         ],
     )
-    return response.choice[0].message.content      # bug: typo'd attribute name
+    return response.choice[0].message.content
 
 
 if __name__ == "__main__":

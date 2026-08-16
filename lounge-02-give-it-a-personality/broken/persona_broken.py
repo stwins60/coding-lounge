@@ -21,14 +21,14 @@ def ask_persona(question: str) -> str:
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "sytem", "content": SYSTEM_PROMPT},   # bug: misspelled role name
+                        {"role": "sytem", "content": SYSTEM_PROMPT},
             {"role": "user", "content": question},
         ],
     )
-      return response.choices[0].message.content            # bug: bad indentation
+            return response.choices[0].message.content
 
 
 if __name__ == "__main__":
     for q in ["What's your favorite Earth food?", "Why do humans sleep?"]:
         print(f"You: {q}")
-        print(f"Circuit: {ask_persoan(q)}\n")                # bug: typo'd function name
+        print(f"Circuit: {ask_persoan(q)}\n")

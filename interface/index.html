@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track your progress through nine hands-on Coding Lounge stations.">
+  <title>Coding Lounge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Coding Lounge home">
+      <span class="brand-mark" aria-hidden="true">CL</span>
+      <span>Coding Lounge</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a class="nav-link active" href="#journey">Journey</a>
+      <a class="nav-link" href="#toolkit">Toolkit</a>
+    </nav>
+    <button class="icon-button" id="resetButton" type="button" title="Reset progress" aria-label="Reset progress">
+      <i data-lucide="rotate-ccw"></i>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-copy">
+        <p class="eyebrow">Agent builder program</p>
+        <h1 id="welcomeTitle">Build clever things.<br><span>One lounge at a time.</span></h1>
+        <p class="welcome-text">Nine hands-on stations. Real code, real tools, and a new challenge waiting at every stop.</p>
+        <a class="primary-button" id="continueButton" href="#journey">
+          <span>Start lounge 1</span>
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+      <div class="welcome-visual" aria-label="Young coders collaborating at computers">
+        <img src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&w=1200&q=85" alt="Young students learning together at computers">
+        <div class="code-sticker" aria-hidden="true">
+          <span>agent.py</span>
+          <code><b>def</b> build_idea():<br>&nbsp;&nbsp;<em>return</em> "wow"</code>
+        </div>
+      </div>
+    </section>
+
+    <section class="progress-band" aria-label="Course progress">
+      <div>
+        <span class="progress-label">Your journey</span>
+        <strong id="progressText">0 of 9 complete</strong>
+      </div>
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="9" aria-valuenow="0">
+        <span id="progressFill"></span>
+      </div>
+      <span class="progress-percent" id="progressPercent">0%</span>
+    </section>
+
+    <section class="journey-section" id="journey" aria-labelledby="journeyTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Choose your next stop</p>
+          <h2 id="journeyTitle">The lounge map</h2>
+        </div>
+        <div class="filter-group" role="group" aria-label="Filter lounges by tier">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="warm-up">Warm-up</button>
+          <button class="filter" type="button" data-filter="core-build">Core</button>
+          <button class="filter" type="button" data-filter="advanced">Advanced</button>
+          <button class="filter" type="button" data-filter="capstone">Capstone</button>
+        </div>
+      </div>
+      <div class="lounge-grid" id="loungeGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="toolkit-section" id="toolkit" aria-labelledby="toolkitTitle">
+      <div class="toolkit-copy">
+        <p class="eyebrow">Builder's toolkit</p>
+        <h2 id="toolkitTitle">Stuck is part of building.</h2>
+        <p>Run a check, read the message, and change one thing at a time. That is debugging.</p>
+      </div>
+      <div class="tool-list">
+        <div><i data-lucide="terminal"></i><span>Run the harness</span><code>python harness/check.py lounge01</code></div>
+        <div><i data-lucide="key-round"></i><span>Protect your keys</span><code>Keep secrets in .env</code></div>
+        <div><i data-lucide="lightbulb"></i><span>Ask for a hint</span><code>Explain what you tried first</code></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="lounge-dialog" id="loungeDialog" aria-labelledby="dialogTitle">
+    <button class="dialog-close icon-button" id="dialogClose" type="button" aria-label="Close lounge details">
+      <i data-lucide="x"></i>
+    </button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <template id="loungeCardTemplate">
+    <article class="lounge-card">
+      <div class="card-topline">
+        <span class="lounge-number"></span>
+        <span class="tier-pill"></span>
+      </div>
+      <div class="lounge-icon"><i></i></div>
+      <h3></h3>
+      <p class="lounge-description"></p>
+      <div class="tag-list"></div>
+      <div class="card-actions">
+        <button class="details-button" type="button">View lounge <i data-lucide="arrow-up-right"></i></button>
+        <label class="complete-toggle">
+          <input type="checkbox">
+          <span><i data-lucide="check"></i></span>
+          <b>Done</b>
+        </label>
+      </div>
+    </article>
+  </template>
+
+  <footer>
+    <span>Coding Lounge</span>
+    <p>Make something curious.</p>
+  </footer>
+</body>
+</html>

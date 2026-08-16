@@ -19,7 +19,7 @@ def roll_dice(sides: int = 6) -> int:
     return random.randint(1, sides)
 
 
-TOOLS = []  # bug: roll_dice exists but was never added here, so the model can't see it
+TOOLS = []
 
 AVAILABLE_FUNCTIONS = {"roll_dice": roll_dice}
 
@@ -33,10 +33,8 @@ def handle_question(question: str) -> str:
     if not reply.tool_calls:
         return reply.content
 
-    # bug: forgot `messages.append(reply)` here — the tool result below
-    # ends up with no assistant turn in front of it.
     for call in reply.tool_calls:
-        function = AVAILABLE_FUNCTIONS[call.function.Name]  # bug: wrong-case attribute
+        function = AVAILABLE_FUNCTIONS[call.function.Name]
         args = json.loads(call.function.arguments)
         result = function(**args)
         messages.append({"role": "tool", "tool_call_id": call.id, "content": str(result)})

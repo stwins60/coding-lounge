@@ -24,10 +24,10 @@ PLAYER_PROMPT = (
 def ask(system_prompt: str, conversation: list[str]) -> str:
     messages = [{"role": "system", "content": system_prompt}]
     for i, line in enumerate(conversation):
-        role = "user" if i % 2 == 0 else "assistant"  # bug: swapped, backwards from working/
+        role = "user" if i % 2 == 0 else "assistant"
         messages.append({"role": role, "content": line})
     response = client.chat.completions.create(model="gpt-4o-mini", messages=messages)
-    return respones.choices[0].message.content  # bug: typo'd variable name
+    return respones.choices[0].message.content
 
 
 def run_conversation(rounds: int = 3) -> list[str]:
@@ -36,7 +36,6 @@ def run_conversation(rounds: int = 3) -> list[str]:
         question = ask(QUIZ_MASTER_PROMPT, conversation)
         conversation.append(question)
         answer = ask(PLAYER_PROMPT, conversation)
-        # bug: forgot conversation.append(answer) — Player's answers vanish
     return conversation
 
 

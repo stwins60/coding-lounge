@@ -8,21 +8,19 @@ one at a time. For the last one, read the code instead of just running it.
 
 class MiniMCPServer:
     def __init__(self, files: dict[str, str]):
-        self.files = files  # bug: stored as `self.files`, but read below as `self._files`
+        self.files = files
 
     def list_resources(self) -> list[str]:
         return list(self._files.keys())
 
     def read_resource(self, name: str) -> str:
-        self._files[name]  # bug: found it, but never returned it
+        self._files[name]
 
     def write_resource(self, name: str, content: str) -> None:
         self._files[name] = content
 
 
 def summarize(text: str) -> str:
-    # bug: this grabs the first WORD, not the first SENTENCE — it never
-    # errors, it's just wrong.
     first_word = text.split(" ")[0].strip()
     return first_word + "." if first_word else ""
 
