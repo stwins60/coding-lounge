@@ -6,3 +6,5 @@ venv/
 .DS_Store
 *.egg-info/
 mcp-servers/data/
+node_modules/
+.wrangler/

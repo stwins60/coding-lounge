@@ -16,6 +16,20 @@ copy .env.example .env        # macOS/Linux: cp .env.example .env
 Open `.env` and paste in a real `OPENAI_API_KEY`. Never commit `.env`,
 never paste a key into chat or code — `.gitignore` already excludes it.
 
+## Deploy the interface
+
+The static site in `interface/` is configured as a Cloudflare Workers
+assets-only project. Install dependencies and preview it locally:
+
+```bash
+npm install
+npm run dev
+```
+
+For Cloudflare Builds, leave **Build command** empty, use
+`npx wrangler deploy` as the **Deploy command**, and use `/` as the path.
+The deployment reads `wrangler.jsonc` and publishes only `interface/`.
+
 ## The map
 
 | # | Lounge | Tier | Uses |
