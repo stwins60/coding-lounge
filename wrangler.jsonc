@@ -2,8 +2,11 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "coding-lounge",
   "compatibility_date": "2026-08-16",
+  "build": {
+    "command": "npm run build"
+  },
   "assets": {
-    "directory": "./interface",
+    "directory": "./dist",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   }

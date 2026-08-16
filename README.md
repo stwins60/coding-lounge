@@ -28,7 +28,8 @@ npm run dev
 
 For Cloudflare Builds, leave **Build command** empty, use
 `npx wrangler deploy` as the **Deploy command**, and use `/` as the path.
-The deployment reads `wrangler.jsonc` and publishes only `interface/`.
+The deployment reads `wrangler.jsonc`, builds the interface, and publishes only
+the interface plus each lounge's public `README.md` guide.
 
 ## The map
 
