@@ -70,6 +70,10 @@ nav { display: flex; height: 100%; gap: 28px; }
 }
 .icon-button:hover { background: var(--yellow); }
 .icon-button svg { width: 18px; }
+.topbar-actions { display: flex; gap: 10px; justify-self: end; align-items: center; }
+.footer-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; color: var(--ink); border-bottom: 2px solid transparent; }
+.footer-link:hover { border-bottom-color: var(--ink); }
+.footer-link svg { width: 16px; }
 
 .welcome {
   min-height: min(520px, calc(100vh - 124px));
