@@ -22,6 +22,9 @@ def ask_the_model(question: str) -> str:
 
 
 if __name__ == "__main__":
-    # TODO (checklist step 2): ask "Hello, I'm a Coding Lounge builder!"
-    # TODO (checklist step 4): ask two more questions of your own
+    # TODO: ask "Hello, I'm a Coding Lounge builder!" and print the reply.
+    # TODO: replace `pass` with a loop that:
+    #   1. reads a question with input()
+    #   2. stops when the question is "quit"
+    #   3. calls ask_the_model() and prints the reply
     pass

@@ -25,5 +25,5 @@ def ask_persona(question: str) -> str:
 
 
 if __name__ == "__main__":
-    # TODO (checklist step 2): ask it 3 questions and print each reply
+    # TODO: make a list of 5 questions, then use a loop to ask and print them.
     pass

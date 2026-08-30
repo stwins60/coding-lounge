@@ -39,7 +39,7 @@ def run(path: Path):
 
     step_lines = re.findall(r"^\d+\.\s+(.*)$", text, re.MULTILINE)
     results.append(
-        ("Lists at least 2 numbered steps", len(step_lines) >= 2, f"found {len(step_lines)}")
+        ("Lists at least 4 numbered steps", len(step_lines) >= 4, f"found {len(step_lines)}")
     )
 
     example_present = "## Example" in text

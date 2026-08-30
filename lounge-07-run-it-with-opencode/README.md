@@ -1,8 +1,16 @@
 # Lounge 7 — Run It With Opencode
 
-**Tier:** Advanced · **Uses:** opencode, AGENTS.md, SKILL.md · **Time:** ~1 hour
+**Tier:** Advanced · **Uses:** opencode, AGENTS.md, SKILL.md · **Time:** 60 minutes
 
 Hand a real coding task to opencode and supervise it end to end.
+
+## 60-minute class plan
+- **5 min:** Read the two starter files.
+- **10 min:** Complete `AGENTS.md` and `mission.md`.
+- **25 min:** Supervise one opencode build.
+- **10 min:** Test the generated code and fix one issue.
+- **5 min:** Write `review.md`.
+- **5 min:** Improve one instruction and compare the next result.
 
 ## Checklist
 - [ ] Read `working/AGENTS.md` and `working/mission.md` so you know

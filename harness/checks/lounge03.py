@@ -1,5 +1,6 @@
 """Lounge 3 — Write the Rulebook (AGENTS.md)."""
 
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -13,6 +14,11 @@ REQUIRED_HEADINGS = [
 ]
 
 
+def _bullet_count(text: str, heading: str) -> int:
+    section = text.partition(heading)[2].partition("\n## ")[0]
+    return len(re.findall(r"^-\s+\S", section, re.MULTILINE))
+
+
 def run(path: Path):
     results = []
     text = path.read_text(encoding="utf-8")
@@ -23,6 +29,16 @@ def run(path: Path):
 
     ok = "___" not in text
     results.append(("No leftover blanks (no ___ left)", ok, "" if ok else "fill in every ___"))
+
+    for heading, label in [
+        ("## What I Can Do", "abilities"),
+        ("## What I Must Never Do", "restrictions"),
+    ]:
+        count = _bullet_count(text, heading)
+        ok = count >= 3
+        results.append(
+            (f"At least 3 {label}", ok, f"found {count}" if not ok else "")
+        )
 
     example_count = text.count("**You:**")
     ok = example_count >= 2

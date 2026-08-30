@@ -1,9 +1,17 @@
 # Lounge 8 — Two Robots Talk
 
-**Tier:** Advanced · **Uses:** Agents, AGENTS.md · **Time:** ~1 hour
+**Tier:** Advanced · **Uses:** Agents, AGENTS.md · **Time:** 60 minutes
 
 Build a second agent with its own job and let the two negotiate a
 conversation.
+
+## 60-minute class plan
+- **5 min:** Trace how the conversation list grows.
+- **15 min:** Write both prompts and role logic.
+- **15 min:** Complete the conversation loop.
+- **10 min:** Run the harness and a three-round conversation.
+- **10 min:** Test five rounds and fix one misunderstanding.
+- **5 min:** Record the roles and fix in `duo-notes.md`.
 
 ## Checklist
 - [ ] Read `working/duo_agents.py` all the way through. Trace how

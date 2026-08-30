@@ -1,9 +1,17 @@
 # Lounge 5 — Give It Hands
 
-**Tier:** Core build · **Uses:** OpenAI API, Agents · **Time:** ~1 hour
+**Tier:** Core build · **Uses:** OpenAI API, Agents · **Time:** 60 minutes
 
 Wire up a real function the model can call instead of guessing the
 answer.
+
+## 60-minute class plan
+- **5 min:** Trace the two-call tool flow.
+- **15 min:** Implement and advertise `roll_dice`.
+- **15 min:** Complete the second model call.
+- **10 min:** Code and register `flip_coin`.
+- **10 min:** Test tool and no-tool questions.
+- **5 min:** Run the harness.
 
 ## Checklist
 - [ ] Read `working/tool_agent.py` from top to bottom. Trace the flow:

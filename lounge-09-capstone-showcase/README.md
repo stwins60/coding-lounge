@@ -1,8 +1,17 @@
 # Lounge 9 — Capstone Showcase
 
-**Tier:** Capstone · **Uses:** OpenAI API, MCP, Agents, AGENTS.md, SKILL.md, opencode · **Time:** ~1 hour
+**Tier:** Capstone · **Uses:** OpenAI API, MCP, Agents, AGENTS.md, SKILL.md, opencode · **Time:** 60 minutes
 
 One agent, everything you've learned, presented live to the lounge.
+
+## 60-minute class plan
+- **5 min:** Pick a project and map the starter.
+- **10 min:** Write the persona and resource data.
+- **15 min:** Advertise both provided tools.
+- **10 min:** Complete the second model call.
+- **10 min:** Code and register one original tool.
+- **5 min:** Run the harness and test questions.
+- **5 min:** Present the working agent.
 
 ## Capstone project ideas
 

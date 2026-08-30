@@ -36,6 +36,12 @@ TOOLS = [
 
 AVAILABLE_FUNCTIONS = {"roll_dice": roll_dice}
 
+# TODO (after roll_dice works):
+#   1. write a flip_coin() function
+#   2. add its schema to TOOLS
+#   3. register it in AVAILABLE_FUNCTIONS
+#   4. add a test question in __main__
+
 
 def handle_question(question: str) -> str:
     messages = [{"role": "user", "content": question}]

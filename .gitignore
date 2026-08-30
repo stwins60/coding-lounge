@@ -9,3 +9,4 @@ mcp-servers/data/
 node_modules/
 .wrangler/
 dist/
+lounge-*/instructor-demo/

@@ -1,9 +1,17 @@
 # Lounge 4 — Teach It a Trick
 
-**Tier:** Core build · **Uses:** SKILL.md · **Time:** ~1 hour
+**Tier:** Core build · **Uses:** SKILL.md, Python · **Time:** 60 minutes
 
 Package one skill as a file your agent can look up and follow, step by
 step — the same shape as [`.opencode/skill/coding-lounge-guide/SKILL.md`](../.opencode/skill/coding-lounge-guide/SKILL.md), which is a real one this repo actually uses.
+
+## 60-minute class plan
+- **5 min:** Choose the skill and its input.
+- **15 min:** Complete `template/SKILL.md` with four ordered steps.
+- **20 min:** Complete `template/skill_tester_template.py`.
+- **10 min:** Break one skill check on purpose, repair it, and rerun.
+- **5 min:** Run the lounge harness.
+- **5 min:** Explain why one test matters.
 
 ## Checklist
 - [ ] Read the working example at `working/SKILL.md` and the real skill
@@ -19,6 +27,10 @@ step — the same shape as [`.opencode/skill/coding-lounge-guide/SKILL.md`](../.
       Order matters — plan before acting, act before reporting.
 - [ ] Add a complete `## Example` block: the ask, what to do, and the
       exact reply format.
+- [ ] Complete `skill_tester_template.py` so it checks the frontmatter,
+      four numbered steps, the example, and leftover blanks.
+- [ ] Temporarily remove one step and prove your tester reports a failure.
+      Restore the step before continuing.
 - [ ] Run the harness:
       `python harness/check.py lounge04 --file lounge-04-teach-it-a-trick/template/SKILL.md`
 - [ ] Link your new skill from your Lounge 3 `AGENTS.md` by adding a
@@ -32,6 +44,7 @@ step — the same shape as [`.opencode/skill/coding-lounge-guide/SKILL.md`](../.
 
 ## Check your work
 ```bash
+python lounge-04-teach-it-a-trick/template/skill_tester_template.py
 python harness/check.py lounge04 --file lounge-04-teach-it-a-trick/template/SKILL.md
 ```
 

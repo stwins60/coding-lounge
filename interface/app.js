@@ -7,7 +7,7 @@ const lounges = [
     tags: ["OpenAI API", "Python"],
     icon: "radio",
     accent: "#ffd43b",
-    time: "20 min",
+    time: "1 hour",
     outcome: "A working model conversation",
     assignment: "A Python script that sends one message to the API and prints the reply.",
     path: "../lounge-01-first-contact/README.md",
@@ -35,7 +35,7 @@ const lounges = [
     accent: "#2ba7b8",
     time: "1 hour",
     outcome: "A dependable agent rulebook",
-    assignment: "An AGENTS.md with 4 abilities, 4 restrictions, and 3 example conversations that survive a rule-break test.",
+    assignment: "An AGENTS.md with clear rules, plus a Python tester that catches missing sections, rules, examples, and blanks.",
     path: "../lounge-03-write-the-rulebook/README.md",
   },
   {

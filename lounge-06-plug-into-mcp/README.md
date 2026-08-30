@@ -1,9 +1,17 @@
 # Lounge 6 — Plug Into MCP
 
-**Tier:** Advanced · **Uses:** MCP, Agents · **Time:** ~1 hour
+**Tier:** Advanced · **Uses:** MCP, Agents · **Time:** 60 minutes
 
 Connect your agent to an MCP server and let it reach beyond the chat
 window.
+
+## 60-minute class plan
+- **5 min:** Trace the server and its stored data.
+- **20 min:** Implement list, read, and write.
+- **10 min:** Implement both agent helper functions.
+- **10 min:** Code and test `delete_resource`.
+- **10 min:** Run the script and fix errors.
+- **5 min:** Run the harness.
 
 This lounge uses a **mini MCP** — a pretend server, in plain Python,
 that copies the real shape of the Model Context Protocol (list what's

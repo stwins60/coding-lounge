@@ -20,6 +20,10 @@ class MiniMCPServer:
         # TODO: store `content` under `name`
         ___
 
+    def delete_resource(self, name: str) -> None:
+        # TODO: remove `name` from this server's files
+        ___
+
 
 def summarize(text: str) -> str:
     """A tiny stand-in 'summary': just the first sentence."""
@@ -43,3 +47,4 @@ if __name__ == "__main__":
     print("Summary:", agent_reads_and_summarizes(server, "diary.txt"))
     agent_writes_a_note(server, "todo.txt", "Try a real MCP server next lounge.")
     print("New resource list:", server.list_resources())
+    # TODO: delete one resource and print the list again.

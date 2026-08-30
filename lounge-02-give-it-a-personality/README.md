@@ -1,9 +1,17 @@
 # Lounge 2 — Give It a Personality
 
-**Tier:** Warm-up · **Uses:** OpenAI API · **Time:** ~1 hour
+**Tier:** Warm-up · **Uses:** OpenAI API · **Time:** 60 minutes
 
 Use a system prompt to turn the model into a character with a name and
 a job.
+
+## 60-minute class plan
+- **5 min:** Read the starter and choose a character idea.
+- **15 min:** Write the system prompt.
+- **15 min:** Complete `ask_persona`.
+- **10 min:** Code a list-and-loop test for five questions.
+- **10 min:** Improve the prompt after reading the replies.
+- **5 min:** Run the harness.
 
 ## Checklist
 - [ ] Open `template/persona_template.py` and read through the whole file
@@ -15,9 +23,9 @@ a job.
       and the user's question to the model and returns the reply.
 - [ ] Run the harness to check your code is wired up correctly:
       `python harness/check.py lounge02 --file lounge-02-give-it-a-personality/template/persona_template.py`
-- [ ] Ask your persona at least **5 different questions** in `__main__`
-      and print each reply. Include at least one silly question and one
-      serious question.
+- [ ] Store at least **5 different questions** in a list, then use a loop in
+      `__main__` to ask and print each one. Include at least one silly
+      question and one serious question.
 - [ ] Check that all 5 replies feel like the *same* character — not just
       the same job, but the same voice and personality.
 - [ ] Tweak the `SYSTEM_PROMPT` to make the personality stronger or
