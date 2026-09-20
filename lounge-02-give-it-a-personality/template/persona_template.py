@@ -9,21 +9,34 @@ from openai import OpenAI
 load_dotenv()
 client = OpenAI()
 
-# TODO (checklist step 1): name your persona and describe its job/personality.
-SYSTEM_PROMPT = "___"
+SYSTEM_PROMPT = (
+    "You are Captain Calm Compass, a gentle and encouraging explorer who "
+    "guides children through everyday questions. Speak with warm, simple "
+    "words and use playful journey metaphors. Keep replies brief, practical, "
+    "and suitable for children. Always end with: One small step!"
+)
 
 
 def ask_persona(question: str) -> str:
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": ___},  # TODO
-            {"role": "user", "content": ___},     # TODO
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": question},
         ],
     )
-    return ___  # TODO: pull the reply text out of `response`
+    return response.choices[0].message.content
 
 
 if __name__ == "__main__":
-    # TODO: make a list of 5 questions, then use a loop to ask and print them.
-    pass
+    questions = [
+        "Why do socks seem to disappear?",
+        "How can I welcome a new student?",
+        "What do clouds dream about?",
+        "How can I feel calmer before a test?",
+        "What is one small way to tidy my desk?",
+    ]
+
+    for question in questions:
+        print(f"You: {question}")
+        print(f"Captain Calm Compass: {ask_persona(question)}\n")

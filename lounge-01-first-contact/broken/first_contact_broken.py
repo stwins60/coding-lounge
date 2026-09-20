@@ -16,14 +16,14 @@ def ask_the_model(question: str) -> str:
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "user", "text": question},
+            {"role": "user", "content": question},
         ],
     )
-    return response.choice[0].message.content
+    return response.choices[0].message.content
 
 
 if __name__ == "__main__":
     reply = ask_the_model("Hello, I'm a Coding Lounge builder!")
     print("AI said:", reply)
-    print(ask_the_model("What is one fun fact about robots?")
+    print(ask_the_model("What is one fun fact about robots?"))
     print(ask_the_model("Can you rhyme with the word 'lounge'?"))

@@ -15,16 +15,18 @@ def ask_the_model(question: str) -> str:
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "user", "content": ___},   # TODO: put `question` here
+            {"role": "user", "content": question},
         ],
     )
-    return ___  # TODO: pull the reply text out of `response`
+    return response.choices[0].message.content
 
 
 if __name__ == "__main__":
-    # TODO: ask "Hello, I'm a Coding Lounge builder!" and print the reply.
-    # TODO: replace `pass` with a loop that:
-    #   1. reads a question with input()
-    #   2. stops when the question is "quit"
-    #   3. calls ask_the_model() and prints the reply
-    pass
+    reply = ask_the_model("Hello, I'm a Coding Lounge builder!")
+    print("AI said:", reply)
+
+    while True:
+        question = input("Ask the AI a question (or type quit): ")
+        if question.lower() == "quit":
+            break
+        print("AI said:", ask_the_model(question))
